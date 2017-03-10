@@ -161,7 +161,6 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
             return numero;
 
         }
- 
         public static string cambio(float dinero, float precio)
         {
 
@@ -179,7 +178,7 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
                     vuelta[i]++;
                     dinero = dinero - monedas[i];
                 }
-                aux = aux + vuelta[i] + "\t"+nombres[i]+" Eur\n";
+                if(vuelta[i]>0)aux = aux + vuelta[i] + "\t"+nombres[i]+" Eur\n";
             }
             return aux;
         }
