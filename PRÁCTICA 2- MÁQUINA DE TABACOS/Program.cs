@@ -33,16 +33,24 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
                 {
                     
                     dineroIntroducido = leerFloatMayorDeCero();
-                    if (dineroIntroducido >= 4.0F)
+                    if (dineroIntroducido >= 4.0F&&dineroIntroducido<=50)
                     {
                         esCorrecto = true;
+                    }
+                    else if (dineroIntroducido < 4.0F)
+                    {
+                        esCorrecto = false;
+                        Console.Clear();
+                        Console.WriteLine(ENCABEZADO);
+                        Console.WriteLine("[ERROR] No se puede introducir una cantidad inferior a 4 Eur\n"
+                                        + "Se le devolvera la cantidad introducida.");
                     }
                     else
                     {
                         esCorrecto = false;
                         Console.Clear();
                         Console.WriteLine(ENCABEZADO);
-                        Console.WriteLine("[ERROR] No se puede introducir una cantidad inferior a 4 Eur\n"
+                        Console.WriteLine("[ERROR] No se puede introducir una cantidad superior a 50 Eur\n"
                                         + "Se le devolvera la cantidad introducida.");
                     }
                 } while (!esCorrecto);
@@ -65,7 +73,7 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
             }while(!esCorrecto);
             //Proceso
             salida += ENCABEZADO + "\n";
-            salida += "\nSuCambio:\n";
+            salida += "\nSu Cambio:\n";
             salida += cambio(dineroIntroducido, precio[opcion - 1])+"\n";
             salida += "".PadRight(70, '-') + "\n";
             salida += "Aquí tiene su tabaco, gracias\n";
@@ -131,7 +139,7 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
 
             do
             {
-                Console.Write("Introduce la cantidad de dinero para comprar tabaco en Eur: ");
+                Console.Write("Por favor, introduce el dinero para comprar el tabaco: ");
                 aux = Console.ReadLine();
                 esCorrecto = float.TryParse(aux, out numero);
                 if (esCorrecto == false || numero < 0)
@@ -145,7 +153,7 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
             return numero;
 
         }
-
+ 
         public static string cambio(float dinero, float precio)
         {
 
