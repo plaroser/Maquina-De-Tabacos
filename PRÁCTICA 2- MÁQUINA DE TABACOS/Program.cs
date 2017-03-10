@@ -10,21 +10,24 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
     {
         static void Main(string[] args)
         {
-            //Declaración de constantes
+            #region Declaración de constantes
             const String ENCABEZADO = "\t*************************\n"
                                     + "\t*                       *\n"
                                     + "\t*         TABACO        *\n"
                                     + "\t*                       *\n"
                                     + "\t*************************\n";
-            //Declaracion de variables
+            #endregion
+
+            #region Declaracion de variables
             float[] precio = { 4.85F, 4.00F, 4.95f, 4.00F, 4.00f, 4.15F };
             String[] nombre = { "Magic", "Clock", "Caomuflage", "Italian", "Allure", "Alonso" };
             float dineroIntroducido = 0.0f;
             Boolean esCorrecto = false;
             int opcion = 0;
             String salida = "";
+            #endregion
 
-            //Entrada y validación
+            #region Entrada y validacion
             do
             {
                 Console.Clear();
@@ -71,16 +74,21 @@ namespace PRÁCTICA_2__MÁQUINA_DE_TABACOS
                     Console.ReadLine();
                 }
             }while(!esCorrecto);
-            //Proceso
+#endregion
+
+            #region Proceso
             salida += ENCABEZADO + "\n";
             salida += "\nSu Cambio:\n";
             salida += cambio(dineroIntroducido, precio[opcion - 1])+"\n";
             salida += "".PadRight(70, '-') + "\n";
             salida += "Aquí tiene su tabaco, gracias\n";
             salida += "Su tabaco: " + nombre[opcion - 1]+"\n";
-            //Salida
+            #endregion
+
+            #region Salida
             Console.Clear();
             Console.Write(salida);
+            #endregion
 
         }
         public static int mostrarMenu(String[] nombres, float[] precios)
